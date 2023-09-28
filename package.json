@@ -1,14 +1,17 @@
 {
   "name": "shashi-bluesky-assignment",
   "version": "1.0.0",
-  "description": "",
+  "description": "Demo of postgis and nodejs",
   "main": "index.js",
   "scripts": {
     "start": "yarn && node server.js"
   },
-  "author": "",
+  "author": "Shashi Kiran M S",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "csv-parser": "^3.0.0"
   }
 }
