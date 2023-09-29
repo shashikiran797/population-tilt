@@ -3,13 +3,19 @@
 
 ## Node version
 
-v14.16.1
+v16.13.2
 
 
 ### Starting in local
 
 ```bash
 yarn start
+```
+
+### Starting in local with auto reload
+
+```bash
+yarn dev-start
 ```
 
 

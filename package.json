@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Demo of postgis and nodejs",
   "main": "src/server.js",
+  "engines": {
+    "node": ">=16.13.2"
+  },
   "type": "module",
   "scripts": {
-    "start": "yarn && node server.js",
-    "dev-start": "yarn && nodemon server.js"
+    "start": "yarn && node src/server.js",
+    "dev-start": "yarn && nodemon src/server.js"
   },
   "author": "Shashi Kiran M S",
   "license": "ISC",
