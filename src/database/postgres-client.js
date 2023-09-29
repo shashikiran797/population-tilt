@@ -1,4 +1,3 @@
-
 import pg from 'pg';
 import * as config from './config.js';
 const { Pool} = pg;
@@ -11,7 +10,7 @@ const pool = new Pool({
     password: config.DB_PASSWORD,
 })
 
-export const executeQuery = async (sql) => {
-    const results = await pool.query(sql);
+export const executeQuery = async (sql, params) => {
+    const results = await pool.query(sql, params);
     return results.rows;
 }

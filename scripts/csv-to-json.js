@@ -1,7 +1,11 @@
-const fs = require('fs');
-const csv = require('csv-parser');
-const path = require('path');
-const { Transform } = require('stream');
+import fs from 'fs';
+import csv from 'csv-parser';
+import path from 'path';
+import { Transform } from 'stream';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // const csvFilePath = path.join(__dirname, '../backend-assignment/test-individuals.csv');
 // const jsonFilePath = path.join(__dirname, '../backend-assignment/test-individuals.json');

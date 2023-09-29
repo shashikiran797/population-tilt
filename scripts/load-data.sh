@@ -4,8 +4,8 @@
 DB_NAME="test"
 DB_USER="postgres"
 DB_PASSWORD="postgres"
-INDIVIDUALS_TABLE_NAME="individuals"
-STATES_TABLE_NAME="states"
+PERSON_TABLE_NAME="person"
+STATES_TABLE_NAME="state"
 PGPASSWORD=$DB_PASSWORD
 CSV_FILE="./backend-assignment/individuals.csv"
 
@@ -18,19 +18,19 @@ fi
 unzip -o backend-assignment.zip
 
 # Table setup in postgres
-psql -d "$DB_NAME" -U "$DB_USER" -c "DROP TABLE IF EXISTS $INDIVIDUALS_TABLE_NAME"
-psql -d "$DB_NAME" -U "$DB_USER" -c "CREATE TABLE $INDIVIDUALS_TABLE_NAME(id SERIAL, first_name text, last_name text, raw jsonb, location geometry(Point, 4326), PRIMARY KEY (id))"
+psql -d "$DB_NAME" -U "$DB_USER" -c "DROP TABLE IF EXISTS $PERSON_TABLE_NAME"
+psql -d "$DB_NAME" -U "$DB_USER" -c "CREATE TABLE $PERSON_TABLE_NAME(id SERIAL, first_name text, last_name text, raw jsonb, location geometry(Point, 4326), PRIMARY KEY (id))"
 node ./scripts/csv-to-json.js
 
 echo "Loading data into PostgreSQL..."
-cat ./backend-assignment/individuals.json | psql -d "$DB_NAME" -U "$DB_USER" -U postgres -c "COPY individuals (raw) FROM STDIN;"
+cat ./backend-assignment/individuals.json | psql -d "$DB_NAME" -U "$DB_USER" -U postgres -c "COPY $PERSON_TABLE_NAME (raw) FROM STDIN;"
 
 echo "Updating data in PostgreSQL..."
-psql -d "$DB_NAME" -U "$DB_USER" -c "UPDATE $INDIVIDUALS_TABLE_NAME SET first_name = raw->>'first_name', last_name = raw->>'last_name', location = ST_GeomFromGeoJSON(raw -> 'location' ->> 'geometry');"
-psql -d "$DB_NAME" -U "$DB_USER" -c "ALTER TABLE $INDIVIDUALS_TABLE_NAME DROP COLUMN raw;";
+psql -d "$DB_NAME" -U "$DB_USER" -c "UPDATE $PERSON_TABLE_NAME SET first_name = raw->>'first_name', last_name = raw->>'last_name', location = ST_GeomFromGeoJSON(raw -> 'location' ->> 'geometry');"
+psql -d "$DB_NAME" -U "$DB_USER" -c "ALTER TABLE $PERSON_TABLE_NAME DROP COLUMN raw;";
 
 echo "Creating index..."
-psql -d "$DB_NAME" -U "$DB_USER" -c "CREATE INDEX location_idx ON $INDIVIDUALS_TABLE_NAME USING GIST (location);"
+psql -d "$DB_NAME" -U "$DB_USER" -c "CREATE INDEX location_idx ON $PERSON_TABLE_NAME USING GIST (location);"
 
 Specify the input GeoJSON folder and output SHP folder
 INPUT_FOLDER="./backend-assignment/states"
