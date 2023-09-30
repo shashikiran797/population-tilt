@@ -1,7 +1,12 @@
 node_modules/
+iaac/node_modules/
 .DS_Store
 .vscode/
 .env
 __MACOSX/
 backend-assignment/
 backend-assignment.zip
+
+# CDK asset staging directory
+iaac/.cdk.staging
+iaac/cdk.out

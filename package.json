@@ -4,7 +4,7 @@
     "description": "Demo of postgis and nodejs",
     "main": "src/server.js",
     "engines": {
-        "node": ">=16.13.2"
+        "node": ">=20.8.0"
     },
     "type": "module",
     "scripts": {
