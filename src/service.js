@@ -1,5 +1,5 @@
-import * as stateRepository from './database/repositories/state-repository.js'
-import * as personRepository from './database/repositories/person-repository.js'
+import * as stateRepository from './database/repositories/state-repository.js';
+import * as personRepository from './database/repositories/person-repository.js';
 
 export async function getAllStates() {
     return stateRepository.getAll();

@@ -12,7 +12,7 @@ export async function getAll() {
     return state.map(s => {
         return {
             ...s,
-            geom: JSON.parse(s.geom)
-        }
-    })
+            geom: JSON.parse(s.geom),
+        };
+    });
 }

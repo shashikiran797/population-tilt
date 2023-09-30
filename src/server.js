@@ -1,6 +1,8 @@
 import Express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import dotenv from 'dotenv';
+dotenv.config();
 
 import { getAllStates, getPeopleByStateId } from './service.js';
 import { swaggerOptions } from './swagger-config.js';
@@ -9,11 +11,7 @@ const app = Express();
 const port = 3000;
 
 const specs = swaggerJsdoc(swaggerOptions);
-app.use(
-    "/api-docs",
-    swaggerUi.serve,
-    swaggerUi.setup(specs)
-);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 /**
  * @swagger
@@ -85,7 +83,7 @@ app.use(
  */
 app.get('/states', async (req, res) => {
     res.json(await getAllStates());
-})
+});
 
 /**
  * @swagger
@@ -129,8 +127,12 @@ app.get('/states', async (req, res) => {
 app.get('/states/:id/people', async (req, res) => {
     const { skip, limit } = req.query;
     res.json(await getPeopleByStateId(req.params.id, skip, limit));
-})
+});
+
+app.get('/health', (req, res) => {
+    res.send('OK');
+});
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});

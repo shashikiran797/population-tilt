@@ -12,11 +12,12 @@ export async function getByStateId(stateId, skip, limit) {
     return {
         total,
         people,
-    }
+    };
 }
 
 async function getPeopleByStateId(stateId, skip, limit) {
-    const people = await executeQuery(`
+    const people = await executeQuery(
+        `
         SELECT
             p.id,
             p.first_name,
@@ -28,26 +29,30 @@ async function getPeopleByStateId(stateId, skip, limit) {
             ST_CONTAINS(s.geom, p."location")
         ORDER BY p.id
         LIMIT $2 OFFSET $3
-    `, [stateId, limit, skip])
+    `,
+        [stateId, limit, skip],
+    );
     return people.map(i => {
         return {
             ...i,
             firstName: i.first_name,
             lastName: i.last_name,
-            location: JSON.parse(i.location)
-        }
-    })
+            location: JSON.parse(i.location),
+        };
+    });
 }
 
 async function countPeopleByStateId(stateId) {
-    const count = await executeQuery(`
+    const count = await executeQuery(
+        `
         SELECT
             count(*)
         FROM person p
         INNER JOIN state s ON
             s.gid  = $1 AND
             ST_CONTAINS(s.geom, p."location")
-    `, [stateId])
+    `,
+        [stateId],
+    );
     return count[0].count;
 }
-

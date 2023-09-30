@@ -1,5 +1,7 @@
 node_modules/
 .DS_Store
+.vscode/
+.env
 __MACOSX/
 backend-assignment/
 backend-assignment.zip
