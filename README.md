@@ -79,3 +79,8 @@ yarn dev-start
 8. Run `cdk destroy` to destroy the stack once you are done with it
 
 
+
+### Debugging
+
+1. Add inbound rules to rds vpc
+2. Use secret manager to store the db password and access it in ecs

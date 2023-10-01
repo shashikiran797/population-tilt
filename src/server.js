@@ -3,12 +3,14 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import dotenv from 'dotenv';
 dotenv.config();
-
 import { getAllStates, getPeopleByStateId } from './service.js';
 import { swaggerOptions } from './swagger-config.js';
 
+// To help in debugging
+console.log(`DB_HOST: ${process.env.DB_HOST}`);
+
 const app = Express();
-const port = 3000;
+const port = 80;
 
 const specs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
@@ -138,5 +140,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 });
