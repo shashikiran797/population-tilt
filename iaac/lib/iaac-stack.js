@@ -47,6 +47,8 @@ class IaacStack extends cdk.Stack {
                     DB_HOST: rdsInstance.dbInstanceEndpointAddress,
                     DB_PASSWORD: plainTextPasswordRds,
                     DB_NAME: 'populationtilt',
+                    // TODO: Change this to your own domain name
+                    SERVER_DOMAIN: 'IaacS-popul-J05RXOIB8KZ5-1471534576.ap-south-1.elb.amazonaws.com',
                 }
             },
             publicLoadBalancer: true,

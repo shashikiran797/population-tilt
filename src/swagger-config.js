@@ -1,3 +1,5 @@
+const SERVER_DOMAIN = process.env.SERVER_DOMAIN || 'localhost:80';
+const SERVER_URL = `http://${SERVER_DOMAIN}`;
 export const swaggerOptions = {
     definition: {
         openapi: '3.0.0',
@@ -9,7 +11,7 @@ export const swaggerOptions = {
         servers: [
             {
                 // TODO: Make this configurable
-                url: 'http://localhost:80',
+                url: SERVER_URL
             },
         ],
     },
