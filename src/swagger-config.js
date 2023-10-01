@@ -1,4 +1,4 @@
-const SERVER_DOMAIN = process.env.SERVER_DOMAIN || 'localhost:80';
+const SERVER_DOMAIN = process.env.SERVER_DOMAIN || `localhost:${process.env.PORT || 80}`;
 const SERVER_URL = `http://${SERVER_DOMAIN}`;
 export const swaggerOptions = {
     definition: {

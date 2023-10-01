@@ -68,11 +68,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
  *     summary: Get all states
  *     tags: [States]
  *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/State'
+ *      required: false
  *     responses:
  *       200:
  *         description: The created book.
