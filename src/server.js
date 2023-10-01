@@ -8,9 +8,10 @@ import { swaggerOptions } from './swagger-config.js';
 
 // To help in debugging
 console.log(`DB_HOST: ${process.env.DB_HOST}`);
+console.log(`DB_NAME: ${process.env.DB_NAME}`);
 
 const app = Express();
-const port = 80;
+const port = process.env.PORT || 80;
 
 const specs = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));

@@ -46,6 +46,7 @@ class IaacStack extends cdk.Stack {
                 environment: {
                     DB_HOST: rdsInstance.dbInstanceEndpointAddress,
                     DB_PASSWORD: plainTextPasswordRds,
+                    DB_NAME: 'populationtilt',
                 }
             },
             publicLoadBalancer: true,

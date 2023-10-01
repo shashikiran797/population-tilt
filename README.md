@@ -77,6 +77,7 @@ yarn dev-start
 6. Run `cdk synth` to synthesize the stack, this will generate the cloudformation template. This step is not mandatory but it is good to do it to make sure everything is working as expected
 7. Run `cdk deploy` to deploy the stack
 8. Run `cdk destroy` to destroy the stack once you are done with it
+9. Use CDK_DEFAULT_REGION to set the region for cdk
 
 
 
