@@ -100,17 +100,20 @@ app.get('/states', async (req, res) => {
  *         schema:
  *           type: number
  *         required: true
+ *         default: 6
  *         description: State id
  *       - in: query
  *         name: skip
  *         schema:
  *           type: number
+ *         default: 0
  *         required: false
  *         description: Number of records to skip
  *       - in: query
  *         name: limit
  *         schema:
  *           type: number
+ *         default: 10
  *         required: false
  *         description: Number of records to limit
  *     responses:
@@ -143,6 +146,7 @@ app.get('/states/:id/people', async (req, res) => {
  *         name: id
  *         schema:
  *           type: number
+ *         default: 1
  *         required: true
  *         description: State id
  *       - in: query
@@ -150,12 +154,14 @@ app.get('/states/:id/people', async (req, res) => {
  *         schema:
  *           type: number
  *         required: false
+ *         default: 0
  *         description: Number of records to skip
  *       - in: query
  *         name: limit
  *         schema:
  *           type: number
  *         required: false
+ *         default: 10
  *         description: Number of records to limit
  *     responses:
  *       200:
