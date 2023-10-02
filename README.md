@@ -104,7 +104,13 @@ sh load_data.sh
 
 ### Database schema
 
+<img width="504" alt="image" src="https://github.com/shashikiran797/population-tilt/assets/16119169/6e02ab65-8bce-41ab-bed0-55f9322ff96c">
+
+
 ### System interaction in cloud
+
+<img width="648" alt="image" src="https://github.com/shashikiran797/population-tilt/assets/16119169/0e8a9d40-b9e2-4481-8e5a-ea742143c5a2">
+
 
 ### Folder structure
 
