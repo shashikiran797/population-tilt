@@ -30,13 +30,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
  *         name:
  *           type: string
  *           description: Name of the state
- *         geom:
- *           type: JSON
- *           description: Geometry shape in geojson standard format. Refer https://geojson.org/
  *       example:
  *         id: 1
  *         title: Andhra Pradesh
- *         geom: {"type":"MultiPolygon","coordinates":[[81.106099147,17.824355872]]}
  *     Person:
  *       type: object
  *       properties:
