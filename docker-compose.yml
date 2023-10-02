@@ -4,6 +4,6 @@ services:
     image: 'population-tilt:latest'
     restart: always
     ports:
-      - '3005:3005'
+      - '80:80'
     env_file:
       - docker.env

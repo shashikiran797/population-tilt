@@ -1,7 +1,7 @@
 import { executeQuery } from '../postgres-client.js';
 
 export async function getAll() {
-    const state = await executeQuery(`
+    const states = await executeQuery(`
         SELECT
             gid as id,
             name,
@@ -9,10 +9,5 @@ export async function getAll() {
         FROM state
         ORDER BY gid ASC
     `);
-    return state.map(s => {
-        return {
-            ...s,
-            geom: JSON.parse(s.geom),
-        };
-    });
+    return states
 }

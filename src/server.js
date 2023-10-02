@@ -9,6 +9,7 @@ import { swaggerOptions } from './swagger-config.js';
 // To help in debugging
 console.log(`DB_HOST: ${process.env.DB_HOST}`);
 console.log(`DB_NAME: ${process.env.DB_NAME}`);
+console.log(`PORT: ${process.env.PORT}`);
 
 const app = Express();
 const port = process.env.PORT || 80;
