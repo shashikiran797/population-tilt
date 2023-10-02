@@ -8,3 +8,7 @@ export async function getAllStates() {
 export async function getPeopleByStateId(stateId, skip, limit) {
     return personRepository.getByStateId(stateId, skip, limit);
 }
+
+export async function getPeopleByStateIdWithCache(stateId, skip, limit) {
+    return personRepository.getByStateIdWithCache(stateId, skip, limit);
+}

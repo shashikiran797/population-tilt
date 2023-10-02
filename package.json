@@ -9,7 +9,7 @@
     "type": "module",
     "scripts": {
         "start": "yarn && PORT=3005 node src/server.js",
-        "dev:start": "yarn && nodemon src/server.js",
+        "dev:start": "yarn && PORT=3005 nodemon src/server.js",
         "docker:build": "docker build -t population-tilt .",
         "docker:start": "docker-compose up -d",
         "docker:stop": "docker-compose down",

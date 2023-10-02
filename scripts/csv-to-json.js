@@ -7,10 +7,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// const csvFilePath = path.join(__dirname, '../backend-assignment/test-individuals.csv');
+const csvFilePath = path.join(__dirname, '../backend-assignment/test-individuals.csv');
 // const jsonFilePath = path.join(__dirname, '../backend-assignment/test-individuals.json');
 
-const csvFilePath = path.join(__dirname, '../backend-assignment/individuals.csv');
+// const csvFilePath = path.join(__dirname, '../backend-assignment/individuals.csv');
 const jsonFilePath = path.join(__dirname, '../backend-assignment/individuals.json');
 
 // exit if jsonFilePath exists
