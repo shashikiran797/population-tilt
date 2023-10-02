@@ -49,6 +49,7 @@ class IaacStack extends cdk.Stack {
                     DB_NAME: 'population_tilt',
                     // TODO: Change this to your own domain name
                     SERVER_DOMAIN: 'IaacS-popul-J05RXOIB8KZ5-1471534576.ap-south-1.elb.amazonaws.com',
+                    PORT: '80',
                 }
             },
             publicLoadBalancer: true,
