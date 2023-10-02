@@ -114,18 +114,26 @@ sh load_data.sh
 
 ### Folder structure
 
-1. iaac - Contains the infrastructure as a code
-2. src - Contains the source code for the api
-    2.1. database - Contains the database related code
-        2.1.1 config.js - Contains the database configuration
-        2.1.2. postgres-client.js - Contains the logic to connect to the database and query the data
-        2.1.3 repositories - Contains the logic to query the data for each table
-    2.2. server.js - Entry point for the api
-    2.3. service.js - Contains the business logic for the api
-3. scripts - Contains the scripts to load the data
-    3.1 load_data.sh - Loads the data into the database
-    3.2. load_data.js - Contains the logic to get the json file to be loaded
-
+<pre>
+iaac
+    |-- bin
+        |-- iaac.js
+    |-- lib
+        |-- iaac-stack.js   # Has all the cloud infra related code
+scripts
+    |-- load-data.sh        # Script to load the data in to the database
+    |-- csv-to-json.js      # Script to convert csv to json
+src
+    |-- database
+        |-- config.js       # Database configuration
+        |-- postgres-client.js  # Database client
+        |-- repositories    # Contains the logic to query the data for each table
+            |-- people-repository.js
+            |-- state-repository.js
+    |-- server.js           # Entry point for the api
+    |-- service.js          # Contains the business logic for the api
+    |-- swagger-config.js   # Swagger configuration
+</pre>
 
 ### Debugging
 
