@@ -4,8 +4,7 @@ export async function getAll() {
     const states = await executeQuery(`
         SELECT
             gid as id,
-            name,
-            ST_AsGeoJSON(geom) as geom
+            name
         FROM state
         ORDER BY gid ASC
     `);
