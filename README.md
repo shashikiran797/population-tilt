@@ -3,11 +3,9 @@
 ## Demo
 [Swagger documentation](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/api-docs)
 
-[GET /states/:id/people](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/states/1/people)
-
 [GET /states](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/states)
 
-[GET /states/:id/people/fast](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/states/1/people/fast)
+[GET /states/:id/people/fast](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/states/6/people/fast)
 
 [GET /states/:id/people](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/states/6/people)
 
@@ -143,9 +141,10 @@ src
 ### Caveats
 
 1. Since I am not sure if the system is read heavy or write heavy. I have created 2 apis to get people by state id
-    1. One derives the people in the state in the real time. This is good if the database is expected to be write heavy.
-    2. Other one uses the precomputed data. Loading data script loads the data and derives state id for all the persons. One more assumption is that, one person can be in only one state.
+    1. One derives the people in the state in the real time. This is good if the database is expected to be write heavy and the data is real time. Upside here is that when we are adding new person, we don't have to recompute the state id for all the persons. Downside here is that, we will have to compute the state id for all the persons every time we query. This is not good if the database is expected to be read heavy
+    2. Other one uses the precomputed data. Loading data script loads the data and derives state id for all the persons. One more assumption is that, one person can be in only one state. Downside here is that, we will have to recompute the state id for all the persons if the state geometry changes. This is good if the database is expected to be read heavy
 2. iaac/lib/iaac-stack.js has password exposed as plain text. This is not a good practice. I have done this for the sake of simplicity. In real world, we can use AWS secrets manager to store the password and retrieve it from there.
 3. I have not added any authentication to the api. This is not a good practice. In real world, we will have to add authentication to the api.
 4. RDS is exposed to the internet. This is not a good practice. In real world, we will have to make sure that the RDS is not exposed to the internet. We will have to make it private after loading data or we should load it from a private subnet or VPN.
-5. Not returning geometry of states, as the data is huge and can run into MBs. We should use tile server to get the geometry of the states and visualize.
+5. Not returning geometry of states, as the data is huge and can run into MegaBytes. If we need geoemtrise, We should use tile server to get the geometry of the states and visualize.
+6. I have chosen AWS CDK to create the infrastructure. This IaaC takes care of the infrastructure and also take care of CI/CD. This is only for simplicity sake. In real world, I would choose Kubernetes for running the containers and not merge CI/CD with the infrastructure code.
