@@ -117,6 +117,9 @@ sh load_data.sh
 1. iaac - Contains the infrastructure as a code
 2. src - Contains the source code for the api
     2.1. database - Contains the database related code
+        2.1.1 config.js - Contains the database configuration
+        2.1.2. postgres-client.js - Contains the logic to connect to the database and query the data
+        2.1.3 repositories - Contains the logic to query the data for each table
     2.2. server.js - Entry point for the api
     2.3. service.js - Contains the business logic for the api
 3. scripts - Contains the scripts to load the data
