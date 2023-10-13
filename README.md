@@ -1,6 +1,9 @@
 # Readme
 
 ## Demo
+
+Demo killed on 13th Oct 2023 in the interest of cost
+
 [Swagger documentation](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/api-docs)
 
 [GET /states](http://iaacs-popul-j05rxoib8kz5-1471534576.ap-south-1.elb.amazonaws.com/states)
